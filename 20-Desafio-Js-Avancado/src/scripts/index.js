@@ -78,21 +78,39 @@ function getUserRepositories(username){
 function getUserEvents(username){
     userEvents(username).then(eventsData => {
         
-       let eventUser = ''
        eventsData.forEach(i => {
-            // let commits = i.payload.commits[0].message
-            let commits = i.payload.commits[0].message
-            eventUser += `<li><a href="${i.id}" target="_blank"> ${i.repo.name} -- ${commits} </a></li> `
-            console.log(commits)
+            let eventUser = ''
+            if (i.payload.commits[0].message != '') {       
+                // console.log (i.repo.name , i.payload.commits[0].message)
+                eventUser += `<li><a href="" target="_blank"> ${i.repo.name} -- ${i.payload.commits[0].message}</a></li> `
+                console.log(i.repo.name)
+                document.querySelector('.profile-data').innerHTML += `
+                                                                        <div class="user-events section">
+                                                                            <div class="events">
+                                                                            <h2> Eventos </h2>
+                                                                                <h3> ${eventUser} </h3>
+                                                                                
+                                                                            </div>
+                                                                        </div>`
+                console(i.payload)
+            }
+            
+
+            // eventUser += `<li><a href="${i.id}" target="_blank"> ${i.repo.name} -- </a></li> `
+            // eventUser += `<li><a href="" target="_blank"> ${i.repo.name} </a></li> `
+            // console.log(commits[0].message)
+            // console.log(i.payload)
         });
 
-        document.querySelector('.profile-data').innerHTML += `
-                                                                <div class="user-events section">
-                                                                    <div class="events">
-                                                                    <h2> Eventos </h2>
-                                                                        <h3> ${eventUser}</h3>
-                                                                    </div>
-                                                                </div>`
+        // document.querySelector('.profile-data').innerHTML += `
+        //                                                         <div class="user-events section">
+        //                                                             <div class="events">
+        //                                                             <h2> Eventos </h2>
+        //                                                                 <h3> ${eventUser} </h3>
+                                                                        
+        //                                                             </div>
+        //                                                         </div>`
     })
 
 }
+

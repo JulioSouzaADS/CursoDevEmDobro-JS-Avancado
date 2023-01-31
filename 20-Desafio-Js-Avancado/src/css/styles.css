@@ -161,7 +161,7 @@ padding: 2px;
 /* FOLOWERS */
 
 
-.container .user-events .events h2{
+/* .container .user-events .events h2{
   margin-bottom: 30px;
   text-align: center;
   background-color: rgba(208, 200, 204, 0.31);
@@ -196,7 +196,8 @@ padding: 2px;
   background-color:hotpink;
   color: #fff;
   background-color: red;
-}
+} */
+
 @media (max-width: 1280px) {
   .container {
     flex-direction: column;
